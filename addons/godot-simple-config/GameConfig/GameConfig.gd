@@ -1,7 +1,13 @@
 extends Node
 
+## Autoload responsavel em gerenciar as configuracoes do jogo e salvar em disco. [br] [br]
+## Ele possui varios nodes do tipo ConfigManager, e cada um gerencia as configuracoes como
+## recursos em uma lista.
+
 ## Nome do arquivo onde sera salvo as configuracoes
 @export var file_name : String = "user://game_config.cfg"
+## Marque essa caixa se voce quer que quando o projeto for iniciado, as configuracoes seram
+## aplicadas logo apos serem carregadas do disco.
 @export var config_at_startup : bool = false
 @export_category("Encryption")
 ## Marque essa caixa se voce quer que o arquivo de configuracao seja salvo com criptografia
@@ -24,6 +30,10 @@ func _get_config_node(config_manager: String) -> ConfigManager:
 	
 	return node
 
+## Retorne as informacoes de uma configuracao especifica [br] [br]
+## O [config_manager] eh o nome do node que esta na cena do GameConfig, ja o [config] 
+## eh o identificador da configuracao especifica dentro do [config_manager]. [br] [br]
+## O retorno dessa funcao são as informacoes da configuracao dentro de um dicionario
 func get_config(config_manager: String, 
 				config: String) -> Dictionary:
 	
@@ -33,21 +43,30 @@ func get_config(config_manager: String,
 	
 	return node.get_config_by_id(config) 
 	
-	
-func get_configs(configs: PackedStringArray = []) -> Dictionary:
+## Acessar todas as informações de todas as configurações de um bloco do 
+## [config_manager] [br] [br]
+## A lista [configs] se nao for vazia, significa que a funcao
+## ira filtrar para resgatar apenas as configuracoes especificadas
+func get_configs(config_manager: String, configs: PackedStringArray = []) -> Dictionary:
 	
 	var config_dictionary : Dictionary = {}
 	
 	for config_node in get_children():
 		
-		if not config_node is ConfigManager:
+		if not config_node is ConfigManager or config_node.name != config_manager:
 			continue
 		
 		if configs.is_empty() or configs.has(config_node.name):
 			config_dictionary[config_node.name] = config_node.get_configs()
+			
+		break
 		
 	return config_dictionary
 
+## Modifique o valor de uma configuração especifica. [br] [br]
+## O [config_manager] refere-se a qual grupo de configuracoes sera acessado
+## e o [config] eh o identificador da configuracao desejada. [value] eh o novo valor
+## da configuracao
 func set_config(config_manager: String, 
 				config: String, 
 				value: Variant) -> bool:
@@ -58,7 +77,9 @@ func set_config(config_manager: String,
 	
 	return node.set_config(config,value) 
 
-## Salvar todas as configuracoes que estao ativas na cena do configurador
+## Salvar todas as configuracoes para o disco. [br] [br]
+## Se [apply_all] for verdadeiro, entao as configuracoes alem de serem salvas
+## no disco, tambem serao aplicadas para dentro do jogo.
 func save_configs(apply_all: bool = false) -> void:
 
 	var config_nodes = get_tree().get_nodes_in_group(ConfigManager.GROUP_NAME)
@@ -83,7 +104,10 @@ func save_configs(apply_all: bool = false) -> void:
 		if encrypt_file and encryption_key.is_empty():
 			printerr("Erro! a chave criptografica esta vazia, salvando o arquivo sem criptografia...")
 		config_file.save(file_name)
-	
+
+## Aplicar as configuracoes existentes [br] [br]
+## Se [save] for verdadeiro, então as configuracoes tambem serao salvas
+## no disco
 func apply_configs(save: bool = false) -> void:
 	var config_nodes = get_tree().get_nodes_in_group(ConfigManager.GROUP_NAME)
 	
@@ -93,6 +117,7 @@ func apply_configs(save: bool = false) -> void:
 	if save:
 		save_configs()
 	
+## Carregar as configuracoes do disco para dentro do jogo.
 func load_configs() -> void:
 	var config_file = ConfigFile.new()
 	var error = OK
@@ -120,6 +145,10 @@ func load_configs() -> void:
 		
 		config.set_configs(config_to_load)
 
+## Conectar o sinal `applied` para um callable especifico [br] [br]
+## Alem de especificar o grupo da configuracao [config_manager] e a
+## configuracao especifica a ser afetada [config], eh necessario a
+## funcao que sera conectada [callable] e as flags dessa conexao [flags]
 func connect_to_applied_signal(config_manager: String, 
 										config: String, 
 										callable: Callable,
