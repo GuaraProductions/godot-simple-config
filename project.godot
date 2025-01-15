@@ -18,6 +18,10 @@ config/icon="res://icon.svg"
 
 GameConfig="*res://addons/godot-simple-config/GameConfig/GameConfig.tscn"
 
+[display]
+
+window/vsync/vsync_mode=0
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot-simple-config/plugin.cfg")

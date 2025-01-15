@@ -1,14 +1,21 @@
 @tool
 extends Node
+class_name FieldSync
 
+## Sincronize uma configuracao especifica do projeto, com a propriedade de um node.
+
+## Nome da propriedade a ser sincronizada com a configuracao
 @export var property_name : String = "" : set = _set_property_name
+## Identificador do [ConfigManager] dentro das configuracoes
 @export var config_manager_id : String = "" : set = _set_config_manager_id
+## Identificador da configuração a ser resgatada
 @export var config_id : String = "" : set = _set_config_id
 
 var parent
 
 func _ready() -> void:
 	
+	# Ignorar esse codigo se for rodado no Script
 	if Engine.is_editor_hint():
 		return
 	
@@ -19,9 +26,13 @@ func _ready() -> void:
 										 config_id, 
 										 update_value)
 	
+	# O node pai chama a funcao _ready, depois deste, logo, conectar a chamada da
+	# funcao ready, para que o valor seja apenas atualizado, quando o pai estiver
+	# pronto
 	parent = get_parent()
 	parent.ready.connect(_parent_ready.bind(config_information.value))
 
+## Quando o node pai esta pronto, essa funcao sera chamada para atualizar o valor
 func _parent_ready(value: Variant) -> void:
 	
 	if not parent is Control:
@@ -29,6 +40,9 @@ func _parent_ready(value: Variant) -> void:
 		
 	update_value(value)
 	
+## Atualize o valor para dentro do node pai. [br] [br]
+## Obs.: Se a atualizacao do node pai for mais complexa, crie uma classe
+## que sobrescreva essa funcao e crie um comportamento personalizado.
 func update_value(value: Variant) -> void:
 	parent.set(property_name, value)
 

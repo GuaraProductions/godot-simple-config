@@ -33,7 +33,7 @@ layout_mode = 2
 [node name="OptionsTabs" type="TabContainer" parent="Margin/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-current_tab = 0
+current_tab = 1
 script = ExtResource("1_nq8mq")
 tabs = Array[String](["Video", "Som", "Bindings", "Nova Aba 3"])
 margin_left = 25
@@ -42,6 +42,7 @@ margin_top = 25
 margin_bottom = 25
 
 [node name="Video" type="MarginContainer" parent="Margin/VBoxContainer/OptionsTabs"]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 25
 theme_override_constants/margin_top = 25
@@ -117,13 +118,19 @@ config_manager_id = "Video"
 config_id = "vsync"
 
 [node name="Som" type="MarginContainer" parent="Margin/VBoxContainer/OptionsTabs"]
-visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 25
 theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
 metadata/_tab_index = 1
+
+[node name="GridContainer" type="GridContainer" parent="Margin/VBoxContainer/OptionsTabs/Som"]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="Margin/VBoxContainer/OptionsTabs/Som/GridContainer"]
+layout_mode = 2
 
 [node name="Bindings" type="MarginContainer" parent="Margin/VBoxContainer/OptionsTabs"]
 visible = false

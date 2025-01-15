@@ -9,5 +9,4 @@ func _default_value() -> Variant:
 	
 func apply() -> bool:
 	DisplayServer.window_set_vsync_mode(value)
-	
 	return DisplayServer.window_get_vsync_mode() == value

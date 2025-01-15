@@ -150,9 +150,9 @@ func load_configs() -> void:
 ## configuracao especifica a ser afetada [config], eh necessario a
 ## funcao que sera conectada [callable] e as flags dessa conexao [flags]
 func connect_to_applied_signal(config_manager: String, 
-										config: String, 
-										callable: Callable,
-										flags: int = 0) -> bool:
+							   config: String, 
+							   callable: Callable,
+							   flags: int = 0) -> bool:
 										
 	var node = _get_config_node(config_manager)
 	if node == null:

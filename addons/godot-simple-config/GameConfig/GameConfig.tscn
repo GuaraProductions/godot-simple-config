@@ -21,6 +21,7 @@ description = "WINDOW_MODE_DESCRIPTION"
 [node name="GameConfig" type="Node"]
 script = ExtResource("1_oqmnv")
 config_at_startup = true
+metadata/_edit_vertical_guides_ = [-286.0]
 
 [node name="Binding" type="Node" parent="." groups=["Config"]]
 script = ExtResource("2_jk1nd")
