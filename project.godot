@@ -14,6 +14,10 @@ config/name="godot-simple-config"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameConfig="*res://addons/godot-simple-config/GameConfig/GameConfig.tscn"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot-simple-config/plugin.cfg")
