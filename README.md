@@ -1,4 +1,10 @@
-# Godot Simple Config
+<div align="center">
+  <h1>Godot Simple Config.</h1>
+</div>
+
+<p align="center">
+  <img src="icon.svg" alt="image" style="width: 15vw;"/>
+</p>
 
 Um plugin minimalista para criar configurações para o seu jogo no Godot.
 
