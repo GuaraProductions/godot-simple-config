@@ -51,7 +51,7 @@ metadata/_tab_index = 0
 
 [node name="Grid" type="GridContainer" parent="Margin/VBoxContainer/OptionsTabs/Video"]
 layout_mode = 2
-theme_override_constants/h_separation = 15
+theme_override_constants/h_separation = 25
 theme_override_constants/v_separation = 15
 columns = 2
 

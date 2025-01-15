@@ -16,5 +16,5 @@ shadow_size = 3
 
 [resource]
 default_font = ExtResource("1_p6bua")
-default_font_size = 32
+default_font_size = 24
 Button/styles/normal = SubResource("StyleBoxFlat_0opin")
