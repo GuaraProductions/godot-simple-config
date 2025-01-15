@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhr3gsciteabi"]
+[gd_scene load_steps=4 format=3 uid="uid://dhr3gsciteabi"]
 
-[ext_resource type="PackedScene" uid="uid://dypcmc41eaav6" path="res://addons/godot_gameblueprint/UI_Reusables/Button/RoundedCornersButton/RoundedCornersButton.tscn" id="1_i787u"]
-[ext_resource type="Script" path="res://addons/godot_gameblueprint/OptionsMenu/OptionsMenu2D/OptionsMenu.gd" id="1_k2nku"]
-[ext_resource type="Script" path="res://addons/godot_gameblueprint/OptionsMenu/OptionsMenu2D/OptionsTabs.gd" id="1_nq8mq"]
-[ext_resource type="PackedScene" uid="uid://dctmr3vmfocli" path="res://addons/godot_gameblueprint/GameConfig/Sync/FieldSync.tscn" id="3_pn3ev"]
+[ext_resource type="Script" path="res://addons/godot-simple-config/OptionsMenu/OptionsMenu2D/OptionsMenu.gd" id="1_k2nku"]
+[ext_resource type="Script" path="res://addons/godot-simple-config/OptionsMenu/OptionsMenu2D/OptionsTabs.gd" id="1_nq8mq"]
+[ext_resource type="PackedScene" uid="uid://dctmr3vmfocli" path="res://addons/godot-simple-config/GameConfig/Sync/FieldSync.tscn" id="3_pn3ev"]
 
 [node name="Options" type="ColorRect"]
 anchors_preset = 15
@@ -147,13 +146,13 @@ layout_mode = 2
 theme_override_constants/separation = 15
 alignment = 2
 
-[node name="Apply" parent="Margin/VBoxContainer/HBox" instance=ExtResource("1_i787u")]
+[node name="Apply" type="Button" parent="Margin/VBoxContainer/HBox"]
 custom_minimum_size = Vector2(225, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 text = "Apply"
 
-[node name="GoBack" parent="Margin/VBoxContainer/HBox" instance=ExtResource("1_i787u")]
+[node name="GoBack" type="Button" parent="Margin/VBoxContainer/HBox"]
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Back"

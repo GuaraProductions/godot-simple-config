@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dhvk3moxtedn1"]
 
 [ext_resource type="LabelSettings" uid="uid://gxmlxyvf3dnm" path="res://addons/godot-simple-config/LabelSettings/Title.tres" id="1_73bfq"]
-[ext_resource type="PackedScene" uid="uid://dypcmc41eaav6" path="res://addons/godot-simple-config/UI_Reusables/Button/RoundedCornersButton/RoundedCornersButton.tscn" id="2_83v63"]
+[ext_resource type="Theme" uid="uid://wiff6lftjnp5" path="res://addons/godot-simple-config/Themes/MainMenu.tres" id="1_o37c2"]
 
 [node name="MainMenu" type="ColorRect"]
 anchors_preset = 15
@@ -9,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_o37c2")
 color = Color(0.147672, 0.147672, 0.147672, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -33,13 +34,17 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 15
 
-[node name="CircularButton" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_83v63")]
+[node name="CircularButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Jogar"
 
-[node name="CircularButton2" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_83v63")]
+[node name="CircularButton2" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Opcoes"
+theme_override_font_sizes/font_size = 32
+text = "Opções"
 
-[node name="CircularButton3" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_83v63")]
+[node name="CircularButton3" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Sair"
