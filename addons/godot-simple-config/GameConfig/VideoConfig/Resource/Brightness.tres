@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="PercentageConfig" load_steps=2 format=3 uid="uid://vx0dj3phyugn"]
 
-[ext_resource type="Script" path="res://addons/godot_gameblueprint/GameConfig/GenericConfig/PercentageConfig.gd" id="1_dw0h4"]
+[ext_resource type="Script" path="res://addons/godot-simple-config/GameConfig/GenericConfig/PercentageConfig.gd" id="1_dw0h4"]
 
 [resource]
 script = ExtResource("1_dw0h4")

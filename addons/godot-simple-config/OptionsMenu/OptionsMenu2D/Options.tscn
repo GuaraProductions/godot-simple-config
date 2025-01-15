@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhr3gsciteabi"]
+[gd_scene load_steps=5 format=3 uid="uid://dhr3gsciteabi"]
 
 [ext_resource type="Script" path="res://addons/godot-simple-config/OptionsMenu/OptionsMenu2D/OptionsMenu.gd" id="1_k2nku"]
 [ext_resource type="Script" path="res://addons/godot-simple-config/OptionsMenu/OptionsMenu2D/OptionsTabs.gd" id="1_nq8mq"]
+[ext_resource type="Theme" uid="uid://bpl14dpauieoq" path="res://addons/godot-simple-config/Themes/OptionsMenu.tres" id="1_v7to3"]
 [ext_resource type="PackedScene" uid="uid://dctmr3vmfocli" path="res://addons/godot-simple-config/GameConfig/Sync/FieldSync.tscn" id="3_pn3ev"]
 
 [node name="Options" type="ColorRect"]
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_v7to3")
 color = Color(0.351257, 0.434102, 0.405522, 1)
 script = ExtResource("1_k2nku")
 

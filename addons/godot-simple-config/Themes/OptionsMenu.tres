@@ -1,0 +1,20 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bpl14dpauieoq"]
+
+[ext_resource type="FontFile" uid="uid://cny1fioxsonul" path="res://addons/godot-simple-config/fonts/Roboto-VariableFont_wdth,wght.ttf" id="1_p6bua"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0opin"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.447088, 0.645319, 0.621149, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 3
+
+[resource]
+default_font = ExtResource("1_p6bua")
+default_font_size = 32
+Button/styles/normal = SubResource("StyleBoxFlat_0opin")
