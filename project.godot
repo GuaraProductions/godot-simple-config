@@ -22,6 +22,10 @@ GameConfig="*res://addons/godot-simple-config/GameConfig/GameConfig.tscn"
 
 window/vsync/vsync_mode=0
 
+[editor]
+
+script/templates_search_path="res://addons/godot-simple-config/script_templates/"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot-simple-config/plugin.cfg")

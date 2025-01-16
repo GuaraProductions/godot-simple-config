@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://cms4n7tmjq28y"]
+
+[ext_resource type="Script" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Fields/WindowResolution/WindowResolutionOptionButton.gd" id="1_xaoa2"]
+[ext_resource type="PackedScene" uid="uid://dctmr3vmfocli" path="res://addons/godot-simple-config/GameConfig/Sync/FieldSync.tscn" id="2_a6ynd"]
+[ext_resource type="Script" path="res://addons/godot-simple-config/GameConfig/Sync/FieldSyncCallable.gd" id="3_n7fss"]
+
+[node name="WindowResolutionOptionButton" type="OptionButton"]
+script = ExtResource("1_xaoa2")
+
+[node name="FieldSyncCallable" parent="." instance=ExtResource("2_a6ynd")]
+script = ExtResource("3_n7fss")
+callable_name = "_update_field_with_vector2i"
+config_manager_id = "Video"
+config_id = "resolution"

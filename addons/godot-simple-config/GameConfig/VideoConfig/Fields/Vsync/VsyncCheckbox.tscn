@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4csc1cqeljtm"]
+
+[ext_resource type="Script" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Fields/Vsync/VsyncCheckbox.gd" id="1_yonsn"]
+[ext_resource type="PackedScene" uid="uid://dctmr3vmfocli" path="res://addons/godot-simple-config/GameConfig/Sync/FieldSync.tscn" id="2_k2a3x"]
+
+[node name="VsyncCheckbox" type="CheckBox"]
+script = ExtResource("1_yonsn")
+
+[node name="FieldSync" parent="." instance=ExtResource("2_k2a3x")]
+property_name = "button_pressed"
+config_manager_id = "Video"
+config_id = "vsync"

@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhr3gsciteabi"]
+[gd_scene load_steps=7 format=3 uid="uid://dhr3gsciteabi"]
 
 [ext_resource type="Script" path="res://addons/godot-simple-config/OptionsMenu/OptionsMenu2D/OptionsMenu.gd" id="1_k2nku"]
 [ext_resource type="Script" path="res://addons/godot-simple-config/OptionsMenu/OptionsMenu2D/OptionsTabs.gd" id="1_nq8mq"]
 [ext_resource type="Theme" uid="uid://bpl14dpauieoq" path="res://addons/godot-simple-config/Themes/OptionsMenu.tres" id="1_v7to3"]
-[ext_resource type="PackedScene" uid="uid://dctmr3vmfocli" path="res://addons/godot-simple-config/GameConfig/Sync/FieldSync.tscn" id="3_pn3ev"]
+[ext_resource type="PackedScene" uid="uid://c4kcl33pkpnbw" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Fields/WindowMode/WindowModeOptionButton.tscn" id="4_3eon1"]
+[ext_resource type="PackedScene" uid="uid://c4csc1cqeljtm" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Fields/Vsync/VsyncCheckbox.tscn" id="5_7e0kg"]
+[ext_resource type="PackedScene" uid="uid://cms4n7tmjq28y" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Fields/WindowResolution/WindowResolutionOptionButton.tscn" id="5_7m882"]
 
 [node name="Options" type="ColorRect"]
 anchors_preset = 15
@@ -33,16 +35,15 @@ layout_mode = 2
 [node name="OptionsTabs" type="TabContainer" parent="Margin/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-current_tab = 1
+current_tab = 0
 script = ExtResource("1_nq8mq")
-tabs = Array[String](["Video", "Som", "Bindings", "Nova Aba 3"])
+tabs = Array[String](["Video", "Som", "Bindings", "Linguagem"])
 margin_left = 25
 margin_right = 25
 margin_top = 25
 margin_bottom = 25
 
 [node name="Video" type="MarginContainer" parent="Margin/VBoxContainer/OptionsTabs"]
-visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 25
 theme_override_constants/margin_top = 25
@@ -71,34 +72,16 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Window Mode"
 
-[node name="WindowModeField" type="OptionButton" parent="Margin/VBoxContainer/OptionsTabs/Video/Grid"]
-unique_name_in_owner = true
+[node name="WindowModeOptionButton" parent="Margin/VBoxContainer/OptionsTabs/Video/Grid" instance=ExtResource("4_3eon1")]
 layout_mode = 2
-selected = 1
-item_count = 5
-popup/item_0/text = "Windowed"
-popup/item_1/text = "Minimized"
-popup/item_1/id = 1
-popup/item_2/text = "Maximized"
-popup/item_2/id = 2
-popup/item_3/text = "Fullscreen"
-popup/item_3/id = 3
-popup/item_3/disabled = true
-popup/item_4/text = "Exclusive Fullscreen"
-popup/item_4/id = 4
-
-[node name="FieldSync" parent="Margin/VBoxContainer/OptionsTabs/Video/Grid/WindowModeField" instance=ExtResource("3_pn3ev")]
-property_name = "selected"
-config_manager_id = "Video"
-config_id = "window_mode"
+selected = 0
 
 [node name="WindowResolutionLabel" type="Label" parent="Margin/VBoxContainer/OptionsTabs/Video/Grid"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Window Resolution"
 
-[node name="WindowResolutionField" type="OptionButton" parent="Margin/VBoxContainer/OptionsTabs/Video/Grid"]
-unique_name_in_owner = true
+[node name="WindowResolutionOptionButton" parent="Margin/VBoxContainer/OptionsTabs/Video/Grid" instance=ExtResource("5_7m882")]
 layout_mode = 2
 
 [node name="VsyncLabel" type="Label" parent="Margin/VBoxContainer/OptionsTabs/Video/Grid"]
@@ -107,17 +90,12 @@ layout_mode = 2
 mouse_filter = 1
 text = "Vsync "
 
-[node name="VsyncField" type="CheckBox" parent="Margin/VBoxContainer/OptionsTabs/Video/Grid"]
-unique_name_in_owner = true
+[node name="VsyncCheckbox" parent="Margin/VBoxContainer/OptionsTabs/Video/Grid" instance=ExtResource("5_7e0kg")]
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="FieldSync" parent="Margin/VBoxContainer/OptionsTabs/Video/Grid/VsyncField" instance=ExtResource("3_pn3ev")]
-property_name = "button_pressed"
-config_manager_id = "Video"
-config_id = "vsync"
-
 [node name="Som" type="MarginContainer" parent="Margin/VBoxContainer/OptionsTabs"]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 25
 theme_override_constants/margin_top = 25
@@ -141,7 +119,7 @@ theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
 metadata/_tab_index = 2
 
-[node name="Nova Aba 3" type="MarginContainer" parent="Margin/VBoxContainer/OptionsTabs"]
+[node name="Linguagem" type="MarginContainer" parent="Margin/VBoxContainer/OptionsTabs"]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 25
@@ -166,9 +144,5 @@ layout_mode = 2
 size_flags_horizontal = 0
 text = "Back"
 
-[connection signal="value_changed" from="Margin/VBoxContainer/OptionsTabs/Video/Grid/MaxFPSSlider" to="." method="_on_max_fps_slider_value_changed"]
-[connection signal="item_selected" from="Margin/VBoxContainer/OptionsTabs/Video/Grid/WindowModeField" to="." method="_on_window_mode_field_item_selected"]
-[connection signal="item_selected" from="Margin/VBoxContainer/OptionsTabs/Video/Grid/WindowResolutionField" to="." method="_on_window_resolution_field_item_selected"]
-[connection signal="toggled" from="Margin/VBoxContainer/OptionsTabs/Video/Grid/VsyncField" to="." method="_on_vsync_field_toggled"]
 [connection signal="pressed" from="Margin/VBoxContainer/HBox/Apply" to="." method="_on_apply_pressed"]
 [connection signal="pressed" from="Margin/VBoxContainer/HBox/GoBack" to="." method="_on_go_back_pressed"]
