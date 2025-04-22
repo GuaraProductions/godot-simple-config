@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwyun7gaivfav"]
+
+[ext_resource type="Script" uid="uid://buajnlmb5cd3f" path="res://addons/godot-simple-config/GameConfig/Sync/FieldSyncSignal/FieldSyncSignal.gd" id="1_nymqt"]
+
+[node name="FieldSyncSignal" type="Node"]
+script = ExtResource("1_nymqt")

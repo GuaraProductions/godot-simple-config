@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv4wp6ssb5l34"]
+
+[ext_resource type="Script" uid="uid://duq6kuekkbksj" path="res://addons/godot-simple-config/GameConfig/SoundConfig/Fields/BusAudioController/BusAudioController.gd" id="1_m6mb3"]
+[ext_resource type="PackedScene" uid="uid://dctmr3vmfocli" path="res://addons/godot-simple-config/GameConfig/Sync/FieldSyncProperty/FieldSync.tscn" id="2_qe6fc"]
+
+[node name="HSlider" type="HSlider"]
+custom_minimum_size = Vector2(120, 0)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+min_value = -80.0
+max_value = 6.0
+step = 0.1
+script = ExtResource("1_m6mb3")
+
+[node name="FieldSync" parent="." instance=ExtResource("2_qe6fc")]
+property_name = "value"
+config_manager_id = "Sound"
+config_id = "Master"

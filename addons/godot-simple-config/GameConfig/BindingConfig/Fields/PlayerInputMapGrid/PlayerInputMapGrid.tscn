@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1q5xq0ggm1rd"]
+
+[ext_resource type="Script" uid="uid://dor0m5g734qbn" path="res://addons/godot-simple-config/GameConfig/BindingConfig/Fields/PlayerInputMapGrid/PlayerlInputMapGrid.gd" id="1_5otip"]
+[ext_resource type="PackedScene" uid="uid://bdu5helxx0ew7" path="res://addons/godot-simple-config/GameConfig/BindingConfig/Fields/ButtonBinder/ButtonBinder.tscn" id="2_dyr1w"]
+
+[node name="GridContainer" type="GridContainer"]
+columns = 3
+script = ExtResource("1_5otip")
+button_bind_screen = ExtResource("2_dyr1w")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "INPUT_NAME"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 2
+text = "MAIN_INPUT"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 2
+text = "SECONDARY_INPUT"

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c4kcl33pkpnbw"]
 
-[ext_resource type="Script" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Fields/WindowMode/WindowModeOptionButton.gd" id="1_302v7"]
-[ext_resource type="PackedScene" uid="uid://dctmr3vmfocli" path="res://addons/godot-simple-config/GameConfig/Sync/FieldSync.tscn" id="2_wfq5q"]
+[ext_resource type="Script" uid="uid://c2khgtv2v5fqt" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Fields/WindowMode/WindowModeOptionButton.gd" id="1_302v7"]
+[ext_resource type="PackedScene" uid="uid://dctmr3vmfocli" path="res://addons/godot-simple-config/GameConfig/Sync/FieldSyncProperty/FieldSync.tscn" id="2_wfq5q"]
 
 [node name="WindowModeOptionButton" type="OptionButton"]
 item_count = 5
@@ -19,4 +19,4 @@ script = ExtResource("1_302v7")
 [node name="FieldSync" parent="." instance=ExtResource("2_wfq5q")]
 property_name = "selected"
 config_manager_id = "Video"
-config_id = "window_mode"
+config_id = "WindowMode"

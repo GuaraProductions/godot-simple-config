@@ -3,12 +3,8 @@ class_name ConfigManager
 
 ## Gerencia um grupo seleto de configuracoes dentro de uma lista
 
-## Uma lista de configuracoes abstratas
-@export var configs : Array[AbstractConfig] = []
 ## Nome do grupo de cena a ser adicionado
 const GROUP_NAME : String = "Config"
-
-var config_ids_and_index : Dictionary = {}
 
 func _ready() -> void:
 	
@@ -18,37 +14,33 @@ func _ready() -> void:
 	
 	if not is_in_group(GROUP_NAME):
 		add_to_group(GROUP_NAME)
-		
-	## Indexar configuracoes, aos seus ids na lista
-	var idx : int = 0
-	for curr in configs:
-		config_ids_and_index[curr.id] = idx
-		idx += 1
 
 ## Acessar as informacoes internas de uma configuracao, a partir de seu id [config]
 func get_config_by_id(config: String) -> Dictionary:
-	var config_found := {}
 	
-	var idx : int = config_ids_and_index.get(config, -1)
+	var config_node = get_node_or_null(config)
+	if config_node == null or not config_node is AbstractConfig:
+		return {}
 	
-	if idx == -1:
-		return config_found
-		
-	return configs[idx].to_json()
+	return get_node(config).to_json()
 	
 ## Retornar todas as configuracoes em formato JSON 
 func get_configs() -> Dictionary:
 	var result : Dictionary = {}
-	for curr in configs:
-		result[curr.id] = curr.to_json()
+	for curr in get_children():
+		result[curr.name] = curr.to_json()
 	return result
 	
 ## Aplicar todas as configuracoes, se existir
 func apply_configs() -> void:
-	for curr in configs:
+	for curr in get_children():
 		if curr == null:
 			continue
-		curr.try_to_apply()
+			
+		if curr is AbstractConfig:
+			curr.try_to_apply()
+		else:
+			printerr("O node \"%s\" não é do tipo \"AbstractConfig\"" % curr.name)
 
 ## Conectar a chamada do sinal `applied` a uma configuracao
 func connect_config_applied_to_callable(config: String, 
@@ -56,40 +48,43 @@ func connect_config_applied_to_callable(config: String,
 										flags: int) -> bool:
 	var connected : bool = false
 	
-	var idx : int = config_ids_and_index.get(config, -1)
-	
-	if idx == -1:
-		return connected
+	var config_node = get_node_or_null(config)
+	if config_node == null or not config_node is AbstractConfig:
+		return false
 		
 	connected = true
 		
-	if not configs[idx].applied.is_connected(callable):
-		configs[idx].applied.connect(callable, flags)
+	if not config_node.applied.is_connected(callable):
+		config_node.applied.connect(callable, flags)
 		
 	return connected
 
 ## Atribuir um novo valor a uma configuracao
-func set_config(config: String, value: Variant) -> bool:
+func set_config(config: String, 
+				value: Variant,
+				apply_after_set: bool) -> bool:
 	
 	var found : bool = false
 	
-	var idx : int = config_ids_and_index.get(config, -1)
-	
-	if idx == -1:
-		return found
+	var config_node = get_node_or_null(config) as AbstractConfig
+	if config_node == null or not config_node is AbstractConfig:
+		return false
 			
-	configs[idx].value = value
-	found = configs[idx].value == value
+	config_node.value = value
+	found = config_node.value == value
+	
+	if found and apply_after_set:
+		config_node.try_to_apply()
 		
 	return found
 
 ## Configuracao em massa de todas as configuracoes
 func set_configs(dict: Dictionary) -> bool:
-	for curr in configs:
-		if not dict.has(curr.id):
+	for curr in get_children():
+		if not dict.has(curr.name):
 			continue
 		
-		var value = str_to_var(dict[curr.id])
+		var value = str_to_var(dict[curr.name])
 		curr.value = value
 		
 	return true

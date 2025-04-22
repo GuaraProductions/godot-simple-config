@@ -1,7 +1,6 @@
 extends Node
 class_name ScreenshotHandler
 
-
 ## O proprio node ira verificar se a tecla de tirar screenshot for pressionada
 @export var handle_screenshot : bool = true
 @export var folder_name : String = "Screenshots"

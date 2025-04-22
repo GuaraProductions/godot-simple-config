@@ -11,7 +11,8 @@ config_version=5
 [application]
 
 config/name="godot-simple-config"
-config/features=PackedStringArray("4.3", "Mobile")
+run/main_scene="uid://dhr3gsciteabi"
+config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -20,6 +21,7 @@ GameConfig="*res://addons/godot-simple-config/GameConfig/GameConfig.tscn"
 
 [display]
 
+window/stretch/mode="canvas_items"
 window/vsync/vsync_mode=0
 
 [editor]

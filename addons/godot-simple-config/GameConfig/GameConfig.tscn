@@ -1,36 +1,63 @@
-[gd_scene load_steps=15 format=3 uid="uid://0oe3frnlftli"]
+[gd_scene load_steps=19 format=3 uid="uid://0oe3frnlftli"]
 
-[ext_resource type="Script" path="res://addons/godot-simple-config/GameConfig/GameConfig.gd" id="1_oqmnv"]
-[ext_resource type="Script" path="res://addons/godot-simple-config/GameConfig/BindingConfig/BindindConfig.gd" id="2_jk1nd"]
-[ext_resource type="Script" path="res://addons/godot-simple-config/GameConfig/VideoConfig/VideoConfig.gd" id="3_3e0aj"]
-[ext_resource type="Script" path="res://addons/godot-simple-config/GameConfig/AbstractConfig.gd" id="4_veuxe"]
-[ext_resource type="Script" path="res://addons/godot-simple-config/GameConfig/SoundConfig/SoundConfig.gd" id="4_wnso0"]
-[ext_resource type="Resource" uid="uid://ca80ovwvtomoq" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Resource/VSync.tres" id="5_8sk5u"]
-[ext_resource type="Resource" uid="uid://b1bw7rod8hasg" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Resource/Resolution.tres" id="6_p5vqg"]
-[ext_resource type="Resource" uid="uid://vx0dj3phyugn" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Resource/Brightness.tres" id="7_jtmrn"]
-[ext_resource type="Script" path="res://addons/godot-simple-config/GameConfig/ScreenshotHandler/ScreenshotHandler.gd" id="7_vkdrh"]
-[ext_resource type="Script" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Config/WindowModeConfig.gd" id="8_hdvg8"]
-[ext_resource type="Script" path="res://addons/godot-simple-config/GameConfig/LocalizationConfig/Language.gd" id="10_lrx1f"]
-
-[sub_resource type="Resource" id="Resource_gl7cv"]
-script = ExtResource("8_hdvg8")
-id = "window_mode"
-name = "WindowMode"
-description = "WINDOW_MODE_DESCRIPTION"
+[ext_resource type="Script" uid="uid://c2y37ldc5361x" path="res://addons/godot-simple-config/GameConfig/GameConfig.gd" id="1_oqmnv"]
+[ext_resource type="Script" uid="uid://bmouaa76xgm47" path="res://addons/godot-simple-config/GameConfig/BindingConfig/BindindConfig.gd" id="2_jk1nd"]
+[ext_resource type="Script" uid="uid://dpuvxjr8ikdsm" path="res://addons/godot-simple-config/GameConfig/VideoConfig/VideoConfig.gd" id="3_3e0aj"]
+[ext_resource type="Script" uid="uid://bbndwhypdpu3s" path="res://addons/godot-simple-config/GameConfig/VideoConfig/AspectRatioResolutions.gd" id="4_m7fst"]
+[ext_resource type="Script" uid="uid://bd66wue8jcsi" path="res://addons/godot-simple-config/GameConfig/SoundConfig/SoundConfig.gd" id="4_wnso0"]
+[ext_resource type="Resource" uid="uid://ydw5obv6sjo4" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Resources/16_9.tres" id="5_8kc2h"]
+[ext_resource type="Resource" uid="uid://drncowmw4ltsc" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Resources/16_10.tres" id="6_jrxom"]
+[ext_resource type="Resource" uid="uid://dmcsei7pldj6m" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Resources/21_9.tres" id="7_i1ar4"]
+[ext_resource type="Script" uid="uid://c88jg6qmnrfnc" path="res://addons/godot-simple-config/GameConfig/ScreenshotHandler/ScreenshotHandler.gd" id="7_vkdrh"]
+[ext_resource type="Resource" uid="uid://eykjdj22r8r5" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Resources/4_3.tres" id="8_glkxh"]
+[ext_resource type="Script" uid="uid://gpb00s7bg7qe" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Config/WindowModeConfig.gd" id="8_hdvg8"]
+[ext_resource type="Script" uid="uid://cfe2ymrrh61t7" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Config/ScalingMode.gd" id="9_0uuix"]
+[ext_resource type="Script" uid="uid://dh017ypk361qv" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Config/VSyncConfig.gd" id="9_258qg"]
+[ext_resource type="Script" uid="uid://vai24m86iy4h" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Config/ResolutionConfig.gd" id="9_1706w"]
+[ext_resource type="Script" uid="uid://0anrtk0ohljv" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Config/AspectRatioConfig.gd" id="9_qo7q1"]
+[ext_resource type="Script" uid="uid://bd4l8jn6vxt7h" path="res://addons/godot-simple-config/GameConfig/LocalizationConfig/LanguageConfig.gd" id="9_xmq8b"]
+[ext_resource type="Script" uid="uid://c7wjw6gopdok4" path="res://addons/godot-simple-config/GameConfig/SoundConfig/Config/BusConfig.gd" id="15_v2f65"]
 
 [sub_resource type="GDScript" id="GDScript_3yny1"]
 script/source = "extends ConfigManager
-"
+class_name LocalizationManager
 
-[sub_resource type="Resource" id="Resource_gnbd2"]
-script = ExtResource("10_lrx1f")
-id = "language"
-name = "Language Config"
-description = "LANGUAGE_CONFIG_DESCRIPTION"
+const LOCALES = {
+	\"English (US)\": \"en_US\",
+	\"English (UK)\": \"en_GB\",
+	\"Português Brasileiro\": \"pt_BR\",
+	\"Português Europeu\": \"pt_PT\",
+	\"Español (España)\": \"es_ES\",
+	\"Español (Latinoamérica)\": \"es_419\",
+	\"Français\": \"fr_FR\",
+	\"Deutsch\": \"de_DE\",
+	\"Italiano\": \"it_IT\",
+	\"Русский\": \"ru_RU\",
+	\"日本語\": \"ja_JP\",
+	\"한국어\": \"ko_KR\",
+	\"简体中文\": \"zh_CN\",
+	\"繁體中文\": \"zh_TW\",
+	\"Nederlands\": \"nl_NL\",
+	\"Svenska\": \"sv_SE\",
+	\"Dansk\": \"da_DK\",
+	\"Suomi\": \"fi_FI\",
+	\"Norsk Bokmål\": \"nb_NO\",
+	\"Polski\": \"pl_PL\",
+	\"Čeština\": \"cs_CZ\",
+	\"Magyar\": \"hu_HU\",
+	\"Türkçe\": \"tr_TR\",
+	\"Ελληνικά\": \"el_GR\",
+	\"Tiếng Việt\": \"vi_VN\",
+	\"Українська\": \"uk_UA\",
+	\"हिन्दी\": \"hi_IN\",
+	\"ไทย\": \"th_TH\",
+	\"العربية\": \"ar_SA\",
+	\"עברית\": \"he_IL\"
+}
+"
 
 [node name="GameConfig" type="Node"]
 script = ExtResource("1_oqmnv")
-config_at_startup = true
 metadata/_edit_vertical_guides_ = [-286.0]
 
 [node name="Binding" type="Node" parent="." groups=["Config"]]
@@ -38,14 +65,37 @@ script = ExtResource("2_jk1nd")
 
 [node name="Video" type="Node" parent="." groups=["Config"]]
 script = ExtResource("3_3e0aj")
-configs = Array[ExtResource("4_veuxe")]([ExtResource("5_8sk5u"), ExtResource("6_p5vqg"), ExtResource("7_jtmrn"), SubResource("Resource_gl7cv")])
+
+[node name="ScalingMode" type="Node" parent="Video"]
+script = ExtResource("9_0uuix")
+
+[node name="Resolution" type="Node" parent="Video"]
+script = ExtResource("9_1706w")
+description = "RESOLUTION_DESCRIPTION"
+
+[node name="VSync" type="Node" parent="Video"]
+script = ExtResource("9_258qg")
+description = "VSYNC_DESCRIPTION"
+
+[node name="WindowMode" type="Node" parent="Video"]
+script = ExtResource("8_hdvg8")
+description = "WINDOW_MODE_DESCRIPTION"
+
+[node name="AspectRatioConfig" type="Node" parent="Video"]
+script = ExtResource("9_qo7q1")
+possible_resolutions = Array[ExtResource("4_m7fst")]([ExtResource("5_8kc2h"), ExtResource("6_jrxom"), ExtResource("7_i1ar4"), ExtResource("8_glkxh")])
 
 [node name="Sound" type="Node" parent="." groups=["Config"]]
 script = ExtResource("4_wnso0")
 
+[node name="Master" type="Node" parent="Sound"]
+script = ExtResource("15_v2f65")
+
 [node name="Localization" type="Node" parent="." groups=["Config"]]
 script = SubResource("GDScript_3yny1")
-configs = Array[ExtResource("4_veuxe")]([SubResource("Resource_gnbd2")])
+
+[node name="PrimaryLanguage" type="Node" parent="Localization"]
+script = ExtResource("9_xmq8b")
 
 [node name="ScreenshotHandler" type="Node" parent="."]
 script = ExtResource("7_vkdrh")

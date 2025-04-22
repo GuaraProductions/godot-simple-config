@@ -1,4 +1,4 @@
-extends Resource
+extends Node
 class_name AbstractConfig
 
 ## Classe abstrata de onde todas as configuracoes sao derivadas [br] [br]
@@ -8,23 +8,11 @@ class_name AbstractConfig
 ## toda vez que o valor for modificado, esse sinal sera emitido, junto ao novo valor da configuracao
 signal applied(value)
 
-## O identificador da configuracao, usando para encontrar ela quando carregado do arquivo de configuracoes
-@export var id : String = "" 
-## O nome da configuracao
-@export var name : String = "" : get = _get_name
 ## Descricao da configuracao
 @export_multiline var description : String = "" : get = _get_description
 
 ## Valor da configuracao. Como cada configuracao pode ter um valor diferente, entao ela eh um Variant
 var value : Variant = null : get = _get_value, set = _set_value
-
-func _init(p_id: String = "",
-		   p_name: String = "", 
-		   p_description : String = "") -> void:
-	
-	id = p_id
-	name = p_name
-	description = p_description
 
 func _get_name() -> String:
 	return tr(name)
@@ -50,7 +38,6 @@ func _default_value() -> Variant:
 ## sobrescrita, para adaptar ao seu caso especifico
 func is_valid(new_value: Variant) -> bool:
 	printerr("Config \"is_valid\" function not implemented!")
-	printerr("Config id: ", id)
 	printerr("Config name: ", name)
 	return false
 
@@ -69,14 +56,12 @@ func try_to_apply() -> bool:
 ## para criar comportamento customizado
 func apply() -> bool:
 	printerr("Config \"apply\" function not implemented!")
-	printerr("Config id: ", id)
 	printerr("Config name: ", name)
 	return false
 	
 ## Converta o conteudo dessa configuracao para JSON
 func to_json() -> Dictionary:
 	return {
-		"id" : id,
 		"name" : name,
 		"description" : description,
 		"value" : value

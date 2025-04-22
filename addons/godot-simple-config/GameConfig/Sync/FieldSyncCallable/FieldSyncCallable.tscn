@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dve45ycei1v4a"]
+
+[ext_resource type="Script" uid="uid://dihiikfmtk6ti" path="res://addons/godot-simple-config/GameConfig/Sync/FieldSyncCallable/FieldSyncCallable.gd" id="1_thjw1"]
+
+[node name="FieldSyncCallable" type="Node"]
+script = ExtResource("1_thjw1")

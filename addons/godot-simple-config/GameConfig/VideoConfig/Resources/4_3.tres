@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="AspectRatioResolutions" load_steps=2 format=3 uid="uid://eykjdj22r8r5"]
+
+[ext_resource type="Script" uid="uid://bbndwhypdpu3s" path="res://addons/godot-simple-config/GameConfig/VideoConfig/AspectRatioResolutions.gd" id="1_vcbeh"]
+
+[resource]
+script = ExtResource("1_vcbeh")
+aspect_ratio = Vector2i(4, 3)
+resolutions = Array[Vector2i]([Vector2i(1024, 768), Vector2i(1152, 864), Vector2i(1280, 960), Vector2i(1440, 1050), Vector2i(1600, 1200), Vector2i(2048, 1536)])

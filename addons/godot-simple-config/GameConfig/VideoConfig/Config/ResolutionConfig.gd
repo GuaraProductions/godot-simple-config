@@ -4,14 +4,6 @@ class_name ResolutionConfig
 ## Se essa opcao for verdadeira, apos fazer o ajuste de resolucao, o jogo ira centralizar a janela, na tela onde a janela esta
 @export var centralize_window : bool = true
 
-func _init(p_id: String = "",
-		   p_name: String = "", 
-		   p_description : String = "",
-		   p_centralize_window: bool = true) -> void:
-	
-	super(p_id, p_name, p_description)
-	centralize_window = p_centralize_window
-
 func is_valid(value: Variant) -> bool:
 	return value is Vector2i and value.x > 0 and value.y > 0
 

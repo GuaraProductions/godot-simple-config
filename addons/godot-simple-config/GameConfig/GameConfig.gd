@@ -8,7 +8,7 @@ extends Node
 @export var file_name : String = "user://game_config.cfg"
 ## Marque essa caixa se voce quer que quando o projeto for iniciado, as configuracoes seram
 ## aplicadas logo apos serem carregadas do disco.
-@export var config_at_startup : bool = false
+@export var config_at_startup : bool = true
 @export_category("Encryption")
 ## Marque essa caixa se voce quer que o arquivo de configuracao seja salvo com criptografia
 @export var encrypt_file : bool = false
@@ -16,6 +16,7 @@ extends Node
 @export var encryption_key : String = ""
 
 func _ready() -> void:
+	
 	load_configs()
 	
 	if config_at_startup:
@@ -66,16 +67,19 @@ func get_configs(config_manager: String, configs: PackedStringArray = []) -> Dic
 ## Modifique o valor de uma configuração especifica. [br] [br]
 ## O [config_manager] refere-se a qual grupo de configuracoes sera acessado
 ## e o [config] eh o identificador da configuracao desejada. [value] eh o novo valor
-## da configuracao
+## da configuracao. [br] [br]
+## Obs.: Se a sua configuração precisa ser aplicada logo após a atribuição, coloque
+## o valor de [apply_after_set] para verdadeiro.
 func set_config(config_manager: String, 
 				config: String, 
-				value: Variant) -> bool:
+				value: Variant,
+				apply_after_set: bool = false) -> bool:
 	
 	var node = _get_config_node(config_manager)
 	if node == null:
 		return false
 	
-	return node.set_config(config,value) 
+	return node.set_config(config, value, apply_after_set) 
 
 ## Salvar todas as configuracoes para o disco. [br] [br]
 ## Se [apply_all] for verdadeiro, entao as configuracoes alem de serem salvas

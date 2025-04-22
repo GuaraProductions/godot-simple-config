@@ -11,7 +11,6 @@ func apply() -> bool:
 	
 func to_json() -> Dictionary:
 	return {
-		"id" : id,
 		"name" : name,
 		"description" : description,
 		"value" : value

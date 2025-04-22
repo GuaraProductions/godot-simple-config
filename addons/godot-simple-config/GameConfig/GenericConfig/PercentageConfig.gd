@@ -10,7 +10,6 @@ func apply() -> bool:
 	applied.emit(value)
 	
 	return true
-	
 
 func _default_value() -> Variant:
 	return default_value 

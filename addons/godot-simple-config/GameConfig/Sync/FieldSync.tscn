@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dctmr3vmfocli"]
-
-[ext_resource type="Script" path="res://addons/godot-simple-config/GameConfig/Sync/FieldSync.gd" id="1_lc70w"]
-
-[node name="FieldSync" type="Node"]
-script = ExtResource("1_lc70w")
