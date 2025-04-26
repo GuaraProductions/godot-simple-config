@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://0oe3frnlftli"]
+[gd_scene load_steps=20 format=3 uid="uid://0oe3frnlftli"]
 
 [ext_resource type="Script" uid="uid://c2y37ldc5361x" path="res://addons/godot-simple-config/GameConfig/GameConfig.gd" id="1_oqmnv"]
 [ext_resource type="Script" uid="uid://bmouaa76xgm47" path="res://addons/godot-simple-config/GameConfig/BindingConfig/BindindConfig.gd" id="2_jk1nd"]
 [ext_resource type="Script" uid="uid://dpuvxjr8ikdsm" path="res://addons/godot-simple-config/GameConfig/VideoConfig/VideoConfig.gd" id="3_3e0aj"]
+[ext_resource type="Script" uid="uid://c6gs6p4ng4f5a" path="res://addons/godot-simple-config/GameConfig/BindingConfig/Config/BindingStateConfig.gd" id="3_nl503"]
 [ext_resource type="Script" uid="uid://bbndwhypdpu3s" path="res://addons/godot-simple-config/GameConfig/VideoConfig/AspectRatioResolutions.gd" id="4_m7fst"]
 [ext_resource type="Script" uid="uid://bd66wue8jcsi" path="res://addons/godot-simple-config/GameConfig/SoundConfig/SoundConfig.gd" id="4_wnso0"]
 [ext_resource type="Resource" uid="uid://ydw5obv6sjo4" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Resources/16_9.tres" id="5_8kc2h"]
@@ -62,6 +63,10 @@ metadata/_edit_vertical_guides_ = [-286.0]
 
 [node name="Binding" type="Node" parent="." groups=["Config"]]
 script = ExtResource("2_jk1nd")
+
+[node name="Player1" type="Node" parent="Binding"]
+script = ExtResource("3_nl503")
+actions_prefixes = Array[String](["player_"])
 
 [node name="Video" type="Node" parent="." groups=["Config"]]
 script = ExtResource("3_3e0aj")

@@ -131,7 +131,7 @@ layout_mode = 2
 
 [node name="GridContainer" parent="Margin/VBox/OptionsTabs/Bindings/ScrollContainer" instance=ExtResource("8_wg7y3")]
 layout_mode = 2
-num_configs = 3
+num_configs = 2
 
 [node name="Linguagem" type="MarginContainer" parent="Margin/VBox/OptionsTabs"]
 visible = false

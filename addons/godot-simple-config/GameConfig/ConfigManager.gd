@@ -32,13 +32,13 @@ func get_configs() -> Dictionary:
 	return result
 	
 ## Aplicar todas as configuracoes, se existir
-func apply_configs() -> void:
+func apply_configs(first_time: bool = false) -> void:
 	for curr in get_children():
 		if curr == null:
 			continue
 			
 		if curr is AbstractConfig:
-			curr.try_to_apply()
+			curr.try_to_apply(first_time)
 		else:
 			printerr("O node \"%s\" não é do tipo \"AbstractConfig\"" % curr.name)
 

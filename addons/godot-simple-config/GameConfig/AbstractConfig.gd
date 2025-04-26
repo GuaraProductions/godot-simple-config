@@ -8,6 +8,9 @@ class_name AbstractConfig
 ## toda vez que o valor for modificado, esse sinal sera emitido, junto ao novo valor da configuracao
 signal applied(value)
 
+func _ready() -> void:
+	value = _default_value()
+
 ## Descricao da configuracao
 @export_multiline var description : String = "" : get = _get_description
 
@@ -42,7 +45,10 @@ func is_valid(new_value: Variant) -> bool:
 	return false
 
 ## Tentar aplicar a configuracao para dentro do jogo
-func try_to_apply() -> bool:
+func try_to_apply(first_time: bool = false) -> bool:
+	
+	if first_time:
+		first_apply()
 	
 	var value_applied : bool = apply()
 	
@@ -55,6 +61,14 @@ func try_to_apply() -> bool:
 ## Observacao: Em configuracoes personalizadas, sobrescreva essa funcao na nova classe
 ## para criar comportamento customizado
 func apply() -> bool:
+	printerr("Config \"apply\" function not implemented!")
+	printerr("Config name: ", name)
+	return false
+	
+## Aplicacao de fato da nova configuracao pela primeira vez quando o jogo abre [br] [br]
+## Observacao: Em configuracoes personalizadas, sobrescreva essa funcao na nova classe
+## para criar comportamento customizado
+func first_apply() -> bool:
 	printerr("Config \"apply\" function not implemented!")
 	printerr("Config name: ", name)
 	return false

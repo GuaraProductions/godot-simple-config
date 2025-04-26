@@ -4,6 +4,9 @@ extends Node
 ## Ele possui varios nodes do tipo ConfigManager, e cada um gerencia as configuracoes como
 ## recursos em uma lista.
 
+signal configs_loaded()
+signal configs_applied()
+
 ## Nome do arquivo onde sera salvo as configuracoes
 @export var file_name : String = "user://game_config.cfg"
 ## Marque essa caixa se voce quer que quando o projeto for iniciado, as configuracoes seram
@@ -20,7 +23,10 @@ func _ready() -> void:
 	load_configs()
 	
 	if config_at_startup:
-		apply_configs()
+		apply_configs(false, true)
+		configs_applied.emit()
+		
+	configs_loaded.emit()
 
 func _get_config_node(config_manager: String) -> ConfigManager:
 	
@@ -112,11 +118,11 @@ func save_configs(apply_all: bool = false) -> void:
 ## Aplicar as configuracoes existentes [br] [br]
 ## Se [save] for verdadeiro, então as configuracoes tambem serao salvas
 ## no disco
-func apply_configs(save: bool = false) -> void:
+func apply_configs(save: bool = false, first_time: bool = false) -> void:
 	var config_nodes = get_tree().get_nodes_in_group(ConfigManager.GROUP_NAME)
 	
 	for config in config_nodes:
-		config.apply_configs()
+		config.apply_configs(first_time)
 		
 	if save:
 		save_configs()

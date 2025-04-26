@@ -18,9 +18,9 @@ func _ready() -> void:
 	if not DirAccess.dir_exists_absolute(screenshot_folder):
 		DirAccess.make_dir_absolute(screenshot_folder)
 
-func _unhandled_key_input(event: InputEvent) -> void:
-	if event.is_action_pressed(screenshot_game_action):
-		_take_screenshot_from_viewport()
+#func _unhandled_key_input(event: InputEvent) -> void:
+	#if event.is_action_pressed(screenshot_game_action):
+	#	_take_screenshot_from_viewport()
 
 func _take_screenshot_from_viewport() -> void:
 

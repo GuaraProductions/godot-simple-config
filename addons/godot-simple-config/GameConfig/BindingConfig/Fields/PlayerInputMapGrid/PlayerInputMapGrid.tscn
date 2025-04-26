@@ -7,15 +7,8 @@
 columns = 3
 script = ExtResource("1_5otip")
 button_bind_screen = ExtResource("2_dyr1w")
+binding_config_name = "Player1"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
 text = "INPUT_NAME"
-
-[node name="Label2" type="Label" parent="."]
-layout_mode = 2
-text = "MAIN_INPUT"
-
-[node name="Label3" type="Label" parent="."]
-layout_mode = 2
-text = "SECONDARY_INPUT"

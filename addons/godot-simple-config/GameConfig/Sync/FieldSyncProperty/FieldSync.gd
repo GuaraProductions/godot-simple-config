@@ -1,6 +1,6 @@
 @tool
 extends Node
-class_name FieldSync
+class_name FieldPropertySync
 
 ## Sincronize uma configuracao especifica do projeto, com a propriedade de um node.
 

@@ -4,3 +4,5 @@
 
 [node name="FieldSyncSignal" type="Node"]
 script = ExtResource("1_nymqt")
+config_manager_id = "Sound"
+config_id = "Master"
