@@ -37,17 +37,24 @@ func first_apply() -> bool:
 	if not value or (value and value.is_empty()):
 		_setup_action_events()
 	else:
-		var actions = value.keys()
+		var actions = value.keys() 
 		actions = actions.filter(_filter_excluded_actions)
-		if not actions.is_empty():
-			_setup_action_events()
+		
+		var all_actions = InputMap.get_actions()
+		all_actions = all_actions.filter(_filter_present_actions)
+		
+		if not actions.is_empty() or value.keys().size() != all_actions.size():
+			value = {}
+
+			for action in all_actions:
+				value[action] = InputMap.action_get_events(action)
 			
 	return true
 
 func _setup_action_events() -> void:
 	value = {}
-	var all_actions = InputMap.get_actions()
 	
+	var all_actions = InputMap.get_actions()
 	all_actions = all_actions.filter(_filter_present_actions)
 	
 	for action in all_actions:

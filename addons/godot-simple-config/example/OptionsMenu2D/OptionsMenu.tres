@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=3 format=3 uid="uid://bpl14dpauieoq"]
 
-[ext_resource type="FontFile" uid="uid://cny1fioxsonul" path="res://addons/godot-simple-config/fonts/Roboto-VariableFont_wdth,wght.ttf" id="1_p6bua"]
+[ext_resource type="FontFile" uid="uid://cny1fioxsonul" path="res://addons/godot-simple-config/example/OptionsMenu2D/fonts/Roboto-VariableFont_wdth,wght.ttf" id="1_p6bua"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0opin"]
 content_margin_left = 5.0

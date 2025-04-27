@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://dhr3gsciteabi"]
 
-[ext_resource type="Script" uid="uid://bomri5ji8l8l7" path="res://addons/godot-simple-config/OptionsMenu/OptionsMenu2D/OptionsMenu.gd" id="1_k2nku"]
-[ext_resource type="Script" uid="uid://lqxninvghd2s" path="res://addons/godot-simple-config/OptionsMenu/OptionsMenu2D/OptionsTabs.gd" id="1_nq8mq"]
-[ext_resource type="Theme" uid="uid://bpl14dpauieoq" path="res://addons/godot-simple-config/Themes/OptionsMenu.tres" id="1_v7to3"]
+[ext_resource type="Script" uid="uid://bomri5ji8l8l7" path="res://addons/godot-simple-config/example/OptionsMenu2D/OptionsMenu.gd" id="1_k2nku"]
+[ext_resource type="Script" uid="uid://lqxninvghd2s" path="res://addons/godot-simple-config/example/OptionsMenu2D/OptionsTabs.gd" id="1_nq8mq"]
+[ext_resource type="Theme" uid="uid://bpl14dpauieoq" path="res://addons/godot-simple-config/example/OptionsMenu2D/OptionsMenu.tres" id="1_v7to3"]
 [ext_resource type="PackedScene" uid="uid://c4kcl33pkpnbw" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Fields/WindowMode/WindowModeOptionButton.tscn" id="4_3eon1"]
 [ext_resource type="PackedScene" uid="uid://c4csc1cqeljtm" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Fields/Vsync/VsyncCheckbox.tscn" id="5_7e0kg"]
 [ext_resource type="PackedScene" uid="uid://cms4n7tmjq28y" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Fields/WindowResolution/WindowResolutionOptionButton.tscn" id="5_7m882"]

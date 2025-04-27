@@ -8,14 +8,13 @@ class_name AbstractConfig
 ## toda vez que o valor for modificado, esse sinal sera emitido, junto ao novo valor da configuracao
 signal applied(value)
 
-func _ready() -> void:
-	value = _default_value()
-
 ## Descricao da configuracao
 @export_multiline var description : String = "" : get = _get_description
-
 ## Valor da configuracao. Como cada configuracao pode ter um valor diferente, entao ela eh um Variant
 var value : Variant = null : get = _get_value, set = _set_value
+
+func _ready() -> void:
+	value = _default_value()
 
 func _get_name() -> String:
 	return tr(name)
@@ -69,8 +68,8 @@ func apply() -> bool:
 ## Observacao: Em configuracoes personalizadas, sobrescreva essa funcao na nova classe
 ## para criar comportamento customizado
 func first_apply() -> bool:
-	printerr("Config \"apply\" function not implemented!")
-	printerr("Config name: ", name)
+	push_warning("Config \"first_apply\" function not implemented!")
+	push_warning("Config name: ", name)
 	return false
 	
 ## Converta o conteudo dessa configuracao para JSON

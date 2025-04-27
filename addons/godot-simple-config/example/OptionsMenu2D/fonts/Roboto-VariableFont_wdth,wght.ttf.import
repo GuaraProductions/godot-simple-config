@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://ukygibpn8cef"
-path="res://.godot/imported/Roboto-Italic-VariableFont_wdth,wght.ttf-f5931fc6904918f008c1f772a2fbd74f.fontdata"
+uid="uid://cny1fioxsonul"
+path="res://.godot/imported/Roboto-VariableFont_wdth,wght.ttf-3f4102fef040b26304d2e47e9f0f5e43.fontdata"
 
 [deps]
 
-source_file="res://addons/godot-simple-config/fonts/Roboto-Italic-VariableFont_wdth,wght.ttf"
-dest_files=["res://.godot/imported/Roboto-Italic-VariableFont_wdth,wght.ttf-f5931fc6904918f008c1f772a2fbd74f.fontdata"]
+source_file="res://addons/godot-simple-config/example/OptionsMenu2D/fonts/Roboto-VariableFont_wdth,wght.ttf"
+dest_files=["res://.godot/imported/Roboto-VariableFont_wdth,wght.ttf-3f4102fef040b26304d2e47e9f0f5e43.fontdata"]
 
 [params]
 
