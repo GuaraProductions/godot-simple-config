@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://dhr3gsciteabi"]
+[gd_scene load_steps=13 format=3 uid="uid://dhr3gsciteabi"]
 
 [ext_resource type="Script" uid="uid://bomri5ji8l8l7" path="res://addons/godot-simple-config/example/OptionsMenu2D/OptionsMenu.gd" id="1_k2nku"]
 [ext_resource type="Script" uid="uid://lqxninvghd2s" path="res://addons/godot-simple-config/example/OptionsMenu2D/OptionsTabs.gd" id="1_nq8mq"]
 [ext_resource type="Theme" uid="uid://bpl14dpauieoq" path="res://addons/godot-simple-config/example/OptionsMenu2D/OptionsMenu.tres" id="1_v7to3"]
 [ext_resource type="PackedScene" uid="uid://c4kcl33pkpnbw" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Fields/WindowMode/WindowModeOptionButton.tscn" id="4_3eon1"]
+[ext_resource type="PackedScene" uid="uid://c4csc1cqeljtm" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Fields/VsyncCheckbox/VsyncCheckbox.tscn" id="5_7e0kg"]
 [ext_resource type="PackedScene" uid="uid://cms4n7tmjq28y" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Fields/WindowResolution/WindowResolutionOptionButton.tscn" id="5_7m882"]
 [ext_resource type="PackedScene" uid="uid://bxf2sbsh66h6e" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Fields/VsyncOptionButton/VsyncOptionButton.tscn" id="7_f1jgs"]
 [ext_resource type="PackedScene" uid="uid://cv4wp6ssb5l34" path="res://addons/godot-simple-config/GameConfig/SoundConfig/Fields/BusAudioController/BusAudioController.tscn" id="7_pw74y"]
@@ -40,7 +41,7 @@ layout_mode = 2
 [node name="OptionsTabs" type="TabContainer" parent="Margin/VBox"]
 layout_mode = 2
 size_flags_vertical = 3
-current_tab = 2
+current_tab = 0
 script = ExtResource("1_nq8mq")
 tabs = Array[String](["Video", "Som", "Bindings", "Linguagem"])
 margin_left = 25
@@ -49,7 +50,6 @@ margin_top = 25
 margin_bottom = 25
 
 [node name="Video" type="MarginContainer" parent="Margin/VBox/OptionsTabs"]
-visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 25
 theme_override_constants/margin_top = 25
@@ -99,6 +99,15 @@ text = "Vsync "
 [node name="VsyncOptionButton" parent="Margin/VBox/OptionsTabs/Video/Grid" instance=ExtResource("7_f1jgs")]
 layout_mode = 2
 
+[node name="VsyncLabel" type="Label" parent="Margin/VBox/OptionsTabs/Video/Grid"]
+layout_mode = 2
+mouse_filter = 1
+text = "Vsync "
+
+[node name="VsyncCheckbox" parent="Margin/VBox/OptionsTabs/Video/Grid" instance=ExtResource("5_7e0kg")]
+layout_mode = 2
+size_flags_horizontal = 0
+
 [node name="MSAA" type="Label" parent="Margin/VBox/OptionsTabs/Video/Grid"]
 layout_mode = 2
 mouse_filter = 1
@@ -136,6 +145,7 @@ text = "Master"
 layout_mode = 2
 
 [node name="Bindings" type="MarginContainer" parent="Margin/VBox/OptionsTabs"]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 25
 theme_override_constants/margin_top = 25

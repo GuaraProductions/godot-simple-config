@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://34ttkgmi50eq"]
+
+[ext_resource type="Script" uid="uid://cig62wj0l0a38" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Fields/AspectRatio/AspectRatioOptionButton.gd" id="1_hwsyg"]
+[ext_resource type="Script" uid="uid://dihiikfmtk6ti" path="res://addons/godot-simple-config/GameConfig/Sync/FieldSyncCallable/FieldSyncCallable.gd" id="2_tas7l"]
+
+[node name="AspectRatioOptionButton" type="OptionButton"]
+script = ExtResource("1_hwsyg")
+
+[node name="FieldSyncCallable" type="Node" parent="."]
+script = ExtResource("2_tas7l")
+callable_name = "_set_item"
+config_manager_id = "Video"
+config_id = "AspectRatio"
+metadata/_custom_type_script = "uid://dihiikfmtk6ti"

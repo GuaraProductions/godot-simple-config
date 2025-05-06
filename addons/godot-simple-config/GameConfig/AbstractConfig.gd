@@ -15,6 +15,7 @@ var value : Variant = null : get = _get_value, set = _set_value
 
 func _ready() -> void:
 	value = _default_value()
+	set_process(false)
 
 func _get_name() -> String:
 	return tr(name)
@@ -68,8 +69,8 @@ func apply() -> bool:
 ## Observacao: Em configuracoes personalizadas, sobrescreva essa funcao na nova classe
 ## para criar comportamento customizado
 func first_apply() -> bool:
-	push_warning("Config \"first_apply\" function not implemented!")
-	push_warning("Config name: ", name)
+	#push_warning("Config \"first_apply\" function not implemented!")
+	#push_warning("Config name: ", name)
 	return false
 	
 ## Converta o conteudo dessa configuracao para JSON

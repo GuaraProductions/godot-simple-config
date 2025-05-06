@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://0oe3frnlftli"]
+[gd_scene load_steps=24 format=3 uid="uid://0oe3frnlftli"]
 
 [ext_resource type="Script" uid="uid://c2y37ldc5361x" path="res://addons/godot-simple-config/GameConfig/GameConfig.gd" id="1_oqmnv"]
 [ext_resource type="Script" uid="uid://bmouaa76xgm47" path="res://addons/godot-simple-config/GameConfig/BindingConfig/BindindConfig.gd" id="2_jk1nd"]
@@ -17,7 +17,11 @@
 [ext_resource type="Script" uid="uid://vai24m86iy4h" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Config/ResolutionConfig.gd" id="9_1706w"]
 [ext_resource type="Script" uid="uid://0anrtk0ohljv" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Config/AspectRatioConfig.gd" id="9_qo7q1"]
 [ext_resource type="Script" uid="uid://bd4l8jn6vxt7h" path="res://addons/godot-simple-config/GameConfig/LocalizationConfig/LanguageConfig.gd" id="9_xmq8b"]
+[ext_resource type="Script" uid="uid://b662j6ssumetl" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Config/MSAA.gd" id="15_cu4et"]
 [ext_resource type="Script" uid="uid://c7wjw6gopdok4" path="res://addons/godot-simple-config/GameConfig/SoundConfig/Config/BusConfig.gd" id="15_v2f65"]
+[ext_resource type="Script" uid="uid://dtaxjmyg2mrt" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Config/TAA.gd" id="16_7xggj"]
+[ext_resource type="Script" uid="uid://cyexwa7stcxm8" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Config/FXA.gd" id="17_ot0ls"]
+[ext_resource type="Script" uid="uid://dboxr3aymuehu" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Config/SSAA.gd" id="18_ax71r"]
 
 [sub_resource type="GDScript" id="GDScript_3yny1"]
 script/source = "extends ConfigManager
@@ -86,9 +90,21 @@ description = "VSYNC_DESCRIPTION"
 script = ExtResource("8_hdvg8")
 description = "WINDOW_MODE_DESCRIPTION"
 
-[node name="AspectRatioConfig" type="Node" parent="Video"]
+[node name="AspectRatio" type="Node" parent="Video"]
 script = ExtResource("9_qo7q1")
 possible_resolutions = Array[ExtResource("4_m7fst")]([ExtResource("5_8kc2h"), ExtResource("6_jrxom"), ExtResource("7_i1ar4"), ExtResource("8_glkxh")])
+
+[node name="MSAA" type="Node" parent="Video"]
+script = ExtResource("15_cu4et")
+
+[node name="TAA" type="Node" parent="Video"]
+script = ExtResource("16_7xggj")
+
+[node name="FXA" type="Node" parent="Video"]
+script = ExtResource("17_ot0ls")
+
+[node name="SSAA" type="Node" parent="Video"]
+script = ExtResource("18_ax71r")
 
 [node name="Sound" type="Node" parent="." groups=["Config"]]
 script = ExtResource("4_wnso0")
