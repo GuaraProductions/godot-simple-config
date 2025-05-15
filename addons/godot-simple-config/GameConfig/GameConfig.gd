@@ -92,11 +92,14 @@ func set_config(config_manager: String,
 ## no disco, tambem serao aplicadas para dentro do jogo.
 func save_configs(apply_all: bool = false) -> void:
 
-	var config_nodes = get_tree().get_nodes_in_group(ConfigManager.GROUP_NAME)
+	var config_nodes = get_children()
 	
 	var config_file = ConfigFile.new()
 	
 	for config in config_nodes:
+		
+		if not config is ConfigManager:
+			continue
 		
 		var config_to_save : Dictionary = config.get_configs()
 		
@@ -119,9 +122,12 @@ func save_configs(apply_all: bool = false) -> void:
 ## Se [save] for verdadeiro, então as configuracoes tambem serao salvas
 ## no disco
 func apply_configs(save: bool = false, first_time: bool = false) -> void:
-	var config_nodes = get_tree().get_nodes_in_group(ConfigManager.GROUP_NAME)
+	var config_nodes = get_children()
 	
 	for config in config_nodes:
+		if not config is ConfigManager:
+			continue
+			
 		config.apply_configs(first_time)
 		
 	if save:
@@ -143,9 +149,13 @@ func load_configs() -> void:
 			printerr("Não foi possível abrir o arquivo: %d" % [error])
 		return
 	
-	var config_nodes = get_tree().get_nodes_in_group(ConfigManager.GROUP_NAME)
+	var config_nodes = get_children()
 	
 	for config in config_nodes:
+		
+		if not config is ConfigManager:
+			continue
+		
 		if not config_file.has_section(config.name):
 			continue
 		

@@ -63,16 +63,20 @@ const LOCALES = {
 
 [node name="GameConfig" type="Node"]
 script = ExtResource("1_oqmnv")
+file_name = null
+config_at_startup = null
+encrypt_file = null
+encryption_key = null
 metadata/_edit_vertical_guides_ = [-286.0]
 
-[node name="Binding" type="Node" parent="." groups=["Config"]]
+[node name="Binding" type="Node" parent="."]
 script = ExtResource("2_jk1nd")
 
 [node name="Player1" type="Node" parent="Binding"]
 script = ExtResource("3_nl503")
 actions_prefixes = Array[String](["player_"])
 
-[node name="Video" type="Node" parent="." groups=["Config"]]
+[node name="Video" type="Node" parent="."]
 script = ExtResource("3_3e0aj")
 
 [node name="ScalingMode" type="Node" parent="Video"]
@@ -94,25 +98,27 @@ description = "WINDOW_MODE_DESCRIPTION"
 script = ExtResource("9_qo7q1")
 possible_resolutions = Array[ExtResource("4_m7fst")]([ExtResource("5_8kc2h"), ExtResource("6_jrxom"), ExtResource("7_i1ar4"), ExtResource("8_glkxh")])
 
-[node name="MSAA" type="Node" parent="Video"]
+[node name="Antialiasing" type="Node" parent="Video"]
+
+[node name="MSAA" type="Node" parent="Video/Antialiasing"]
 script = ExtResource("15_cu4et")
 
-[node name="TAA" type="Node" parent="Video"]
+[node name="TAA" type="Node" parent="Video/Antialiasing"]
 script = ExtResource("16_7xggj")
 
-[node name="FXA" type="Node" parent="Video"]
+[node name="FXA" type="Node" parent="Video/Antialiasing"]
 script = ExtResource("17_ot0ls")
 
-[node name="SSAA" type="Node" parent="Video"]
+[node name="SSAA" type="Node" parent="Video/Antialiasing"]
 script = ExtResource("18_ax71r")
 
-[node name="Sound" type="Node" parent="." groups=["Config"]]
+[node name="Sound" type="Node" parent="."]
 script = ExtResource("4_wnso0")
 
 [node name="Master" type="Node" parent="Sound"]
 script = ExtResource("15_v2f65")
 
-[node name="Localization" type="Node" parent="." groups=["Config"]]
+[node name="Localization" type="Node" parent="."]
 script = SubResource("GDScript_3yny1")
 
 [node name="PrimaryLanguage" type="Node" parent="Localization"]

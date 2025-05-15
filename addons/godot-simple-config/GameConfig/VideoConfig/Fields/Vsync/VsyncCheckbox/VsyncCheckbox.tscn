@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c4csc1cqeljtm"]
 
-[ext_resource type="Script" uid="uid://cv51uwdbe05qb" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Fields/VsyncCheckbox/VsyncCheckbox.gd" id="1_yonsn"]
+[ext_resource type="Script" uid="uid://cv51uwdbe05qb" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Fields/Vsync/VsyncCheckbox/VsyncCheckbox.gd" id="1_yonsn"]
 [ext_resource type="PackedScene" uid="uid://dctmr3vmfocli" path="res://addons/godot-simple-config/GameConfig/Sync/FieldSyncProperty/FieldSync.tscn" id="2_k2a3x"]
 
 [node name="VsyncCheckbox" type="CheckBox"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://8trebfdmioi5"]
 
-[ext_resource type="Script" uid="uid://w1xmrca2n0rh" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Fields/MSAA/MSAAOptionButton.gd" id="1_2eqvy"]
+[ext_resource type="Script" uid="uid://w1xmrca2n0rh" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Fields/Antialiasing/MSAA/MSAAOptionButton.gd" id="1_2eqvy"]
 [ext_resource type="Script" uid="uid://dihiikfmtk6ti" path="res://addons/godot-simple-config/GameConfig/Sync/FieldSyncCallable/FieldSyncCallable.gd" id="2_f8qfg"]
 
 [node name="MSAAOptionButton" type="OptionButton"]

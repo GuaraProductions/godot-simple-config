@@ -5,10 +5,11 @@ func get_bindings(config: String) -> Dictionary:
 	
 	var found : bool = false
 	
-	var config_node = get_node_or_null(config) as BindingStateConfig
-	if config_node == null or not config_node is BindingStateConfig:
+	if not configs.has(config):
 		return {}
-			
+		
+	var config_node : AbstractConfig = configs[config]
+
 	return config_node.value
 
 ## Atribuir um novo valor a uma configuracao
@@ -18,9 +19,10 @@ func set_binding(config: String,
 	
 	var found : bool = false
 	
-	var config_node = get_node_or_null(config) as BindingStateConfig
-	if config_node == null or not config_node is BindingStateConfig:
+	if not configs.has(config):
 		return false
+		
+	var config_node : AbstractConfig = configs[config]
 			
 	config_node.append_binding(binding)
 	found = true

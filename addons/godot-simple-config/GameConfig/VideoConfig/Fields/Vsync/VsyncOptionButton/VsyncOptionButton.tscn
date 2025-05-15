@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bxf2sbsh66h6e"]
 
-[ext_resource type="Script" uid="uid://cnqxvd7avxbjx" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Fields/VsyncOptionButton/VsyncOptionButton.gd" id="1_5iujh"]
+[ext_resource type="Script" uid="uid://cnqxvd7avxbjx" path="res://addons/godot-simple-config/GameConfig/VideoConfig/Fields/Vsync/VsyncOptionButton/VsyncOptionButton.gd" id="1_5iujh"]
 [ext_resource type="Script" uid="uid://dihiikfmtk6ti" path="res://addons/godot-simple-config/GameConfig/Sync/FieldSyncCallable/FieldSyncCallable.gd" id="2_s0sn8"]
 
 [node name="VsyncOptionButton" type="OptionButton"]
